@@ -1,0 +1,44 @@
+-------------------------------------------
+Sobrecarga de Operadores --- Parte II
+-------------------------------------------
+
+** Objetivo deste vídeo:
+
+Ilustrar a sobrecarga dos operadores = e []
+através da implementação da classe Array
+
+
+*******************************
+Tipo Abstrato de Dados: Array
+*******************************
+
+Um array é uma lista sequencial de 
+elementos que possuem todos o mesmo tipo.
+É uma estrutura de dados homogênea.
+O tamanho do array é estático e definido 
+no momento da criação do array.
+
+---------------------------------
+
+Funcionalidades:
+
+- Criar array com tamanho n - construtor OK
+- Criar array a partir de outro array OK
+- Destruir array - OK
+- Copiar um array - OK
+- obter o tamanho do array OK
+- sobrecarga do operador [] OK
+- fazer o swap de dois arrays OK
+- sobrecarga do operador == OK
+- sobrecarga do operador != OK
+
+----------------------------------
+
+Dados privados:
+
+- ponteiro para o array
+- tamanho do espaço de memória alocado
+
+
+
+
