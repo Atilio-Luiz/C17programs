@@ -1,0 +1,74 @@
+------------------------------------------------
+Construindo um iterador para a classe Array<T>
+Parte 2
+------------------------------------------------
+
+A biblioteca padrão do C++, a STL, possui vários
+algoritmos já prontos para uso. Muitos deles, recebem
+como entrada um par de iteradores.
+
+Esses algoritmos estão disponíveis na biblioteca: <algorithm>
+
+Exemplo:
+
+count(it_begin, it_end, elemento) : conta o número de ocorrências 
+do elemento no intervalo dado pelos iteradores it_begin e it_end
+
+------------------------------------------------
+
+Se você pretende aplicar alguns algoritmos da STL
+do C++ na sua classe Array<T>, então você precisa
+fazer algumas modificações no iterador dela, a fim 
+de que os algoritmos possam funcionar de forma correta.
+
+Uma coisa que é preciso fazer é atribuir algumas 
+propriedades ao iterador. Até o C++ 17, isso é feito 
+marcando-o com o mecanismo de "despacho de tags" (tag despatch).
+
+----------------------------------------------------------------------
+
+A STL do C++17 espera as seguintes 5 propriedades (tags) de um iterador:
+
+** iterator_category — uma das seis categorias de iteradores 
+    que vimos anteriormente. 
+    A lista completa é esta aqui:
+
+    - input_iterator_tag
+    - output_iterator_tag
+    - forward_iterator_tag <--------------
+    - bidirectional_iterator_tag
+    - random_access_iterator_tag
+
+    A tag std::forward_iterator_tag é o que precisamos.
+
+** difference_type — um tipo inteiro sem sinal que pode ser usado 
+    para identificar a distância entre dois iteradores. 
+    Nosso iterador é basicamente um wrapper em torno de um 
+    ponteiro e aproveita a aritmética do ponteiro, 
+    então o padrão std::ptrdiff_t é uma boa escolha;
+
+** value_type — o tipo sobre o qual o iterador itera. Tipo T no nosso caso;
+
+** pointer — define um ponteiro para o tipo iterado. Tipo T* no nosso caso;
+
+** reference — define uma referência ao tipo iterado. Tipo T& no nosso caso;
+
+
+-------------------------------------------------------------
+
+Por quê servem as tags?
+
+Tags são usadas para selecionar o algoritmo mais eficiente 
+se seu contêiner for passado para uma das funções da STL da 
+biblioteca <algorithm>. 
+
+Tags erradas significam desempenho abaixo do ideal! 
+A tag iterator_category também é usada para definir 
+requisitos de algoritmo, por exemplo: 
+
+std::fill requer um Forward Iterator, 
+enquanto std::reverse requer um Bidirecional Iterator. 
+
+Passar o iterador errado resultará em um erro de compilação.
+
+-----------------------------------------------------------------
