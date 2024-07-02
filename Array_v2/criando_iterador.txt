@@ -1,0 +1,74 @@
+-------------------------------------------
+Criando um iterador para a classe Array<T>
+-------------------------------------------
+
+Objetivo:
+    
+    Criar uma classe genérica chamada IteratorArray<T>
+    que encapsula a lógica de um iterador.
+
+------------
+
+*** Vou criar a classe IteratorArray<T> como uma classe
+    amiga da classe Array<T>
+
+*** Por questão de brevidade, o iterador será do tipo
+    Foward Iterator, mas poderia ser um Random Access Iterator
+    já que a estrutura interna da nossa classe Array<T> o permite.
+
+*** Lembrando: um Forward Iterator é um iterador que permite
+    percorre a estrutura em apenas uma direção, para frente, 
+    geralmente incrementando o iterador.
+
+*** Logo, a nossa classe IteratorArray<T> precisa sobrecarregar os
+    operadores de pré-incremento (++it) e pós-incremento (it++)
+    Além disso, precisa sobrecarregar os operadores ==, !=, *, ->
+
+*** Ao criar uma classe em C++, ele sempre fornece automaticamente
+    pelo menos 4 funções-membro para a sua classe:
+    - construtor default - OK
+    - destrutor - OK
+    - construtor de cópia - OK
+    - sobrecarga do operador de atribuição (=) - Ok
+    Devemos prestar atenção se estas funções realmente fazem o 
+    que espera-se que elas façam neste caso.
+
+------------
+
+Passos para criar a classe IteratorArray<T>:
+
+1. Crie IteratorArray<T> como amiga de Array<T> (OK)
+
+2. Defina os atributos privados (OK)
+
+3. Defina um construtor privado que recebe como argumento
+um ponteiro para um elemento do array (OK)
+
+4. Atenção às 4 funções-membro que são criadas automaticamente (OK)
+
+5. Sobrecarga dos operadores:
+    * pré-incremento: operator++() -----> OK
+    * pós-incremento: operator++(int) -----> OK
+    * operador de igualdade: operator== -----> OK
+    * operador de diferença: operator!= -----> OK
+    * operador de desreferência: operator* -----> OK
+    * operador seta: operator->  -----> OK
+
+----------------------
+
+Na classe Array<T> será preciso criar duas funções adicionais:
+
+*** iterator begin()
+
+    Essa função retorna um iterador para o início do array
+
+*** iterator end()
+    
+    Essa função retorna um iterador para uma posição
+    após o último elemento do array
+
+----------------------
+
+
+
+
